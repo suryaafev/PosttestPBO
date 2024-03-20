@@ -1,0 +1,46 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+class Pasien {
+   private String namaPasien;
+   private String penyakit;
+   private String alamat;
+   private int noHP;
+
+   public Pasien(String var1, String var2, String var3, int var4) {
+      this.namaPasien = var1;
+      this.penyakit = var2;
+      this.alamat = var3;
+      this.noHP = var4;
+   }
+
+   public String getNamaPasien() {
+      return this.namaPasien;
+   }
+
+   public void setNamaPasien(String var1) {
+      this.namaPasien = var1;
+   }
+
+   public String getPenyakit() {
+      return this.penyakit;
+   }
+
+   public void setPenyakit(String var1) {
+      this.penyakit = var1;
+   }
+
+   public String getAlamat() {
+      return this.alamat;
+   }
+
+   public void setAlamat(String var1) {
+      this.alamat = var1;
+   }
+
+   public int getNoHP() {
+      return this.noHP;
+   }
+
+   public void setNoHP(int var1) {
+      this.noHP = var1;
+   }
+}
