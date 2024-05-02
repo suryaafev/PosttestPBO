@@ -1,0 +1,80 @@
+# Program Rumah Sakit Sederhana
+
+# Inisialisasi variabel untuk menyimpan data pasien
+daftar_pasien = []
+
+# Fungsi untuk menampilkan menu
+def tampilkan_menu():
+        print("""
+╔══════════════════════════════════════════╗
+║ >>>> SELAMAT DATANG DI RUMAH SAKIT <<<<  ║           
+╚══════════════════════════════════════════╝
+╔══════════════════════════════════════════╗
+║                MENU UTAMA                ║
+╚══════════════════════════════════════════╝
+║             1. ║ Daftar Pasien           ║
+║             2. ║ Tambah Pasien           ║
+║             3. ║ Hitung Biaya            ║
+║             4. ║ Janji Temu              ║
+║             0. ║ Exit                    ║
+╚══════════════════════════════════════════╝
+    """)
+
+# Fungsi untuk menampilkan daftar pasien
+def tampilkan_daftar_pasien():
+    print("\nDaftar Pasien:")
+    if not daftar_pasien:
+        print("Tidak ada pasien terdaftar.")
+    else:
+        for i, pasien in enumerate(daftar_pasien, 1):
+            print(f"{i}. {pasien}")
+
+# Fungsi untuk menambahkan pasien baru
+def tambah_pasien():
+    nama_pasien = input("Masukkan nama pasien: ")
+    daftar_pasien.append({"nama": nama_pasien, "biaya": 0, "janji_temu": "Belum diatur"})
+    print(f"{nama_pasien} telah ditambahkan ke dalam daftar pasien.")
+
+# Fungsi untuk menghitung biaya pasien
+def hitung_biaya():
+    tampilkan_daftar_pasien()
+    nomor_pasien = int(input("Masukkan nomor pasien: ")) - 1
+    biaya = float(input("Masukkan biaya: "))
+    daftar_pasien[nomor_pasien]["biaya"] += biaya
+    print(f"Biaya untuk {daftar_pasien[nomor_pasien]['nama']} telah dihitung.")
+
+# Fungsi untuk mengatur janji temu pasien
+def atur_janji_temu():
+    tampilkan_daftar_pasien()
+    nomor_pasien = int(input("Masukkan nomor pasien: ")) - 1
+    janji_temu = input("Masukkan janji temu (contoh: 25 April 2024, 10:00): ")
+    daftar_pasien[nomor_pasien]["janji_temu"] = janji_temu
+    print(f"Janji temu untuk {daftar_pasien[nomor_pasien]['nama']} telah diatur pada {janji_temu}.")
+
+# Main program
+while True:
+    tampilkan_menu()
+    pilihan = input("Masukkan pilihan Anda: ")
+
+    if pilihan == '1':
+        tampilkan_daftar_pasien()
+    elif pilihan == '2':
+        tambah_pasien()
+    elif pilihan == '3':
+        hitung_biaya()
+    elif pilihan == '4':
+        atur_janji_temu()
+    elif pilihan == '0':
+            print("""
+╔══════════════════════════════════════════╗
+║            TERIMAKASIH BANYAK            ║
+║         SEMOGA HARIMU MENYENANGKAN       ║         
+╚══════════════════════════════════════════╝
+""")
+            break
+    else:
+            print("""
+╔══════════════════════════════════════════╗
+║           Pilihan TIdak Valid            ║
+╚══════════════════════════════════════════╝
+""")
